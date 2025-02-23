@@ -1,0 +1,71 @@
+## ¿Qué convenciones se suelen seguir para hacer los commit messages?
+
+Existen varias convenciones y mejores prácticas para escribir mensajes de commit efectivos en Git. Aquí tienes algunas de las más comunes:
+
+### 1. Mensajes Breves y Claros
+
+-   **Título breve (50 caracteres o menos)**: El título debe ser conciso y descriptivo.
+
+    ```         
+    Añade soporte para la autenticación OAuth
+    ```
+
+### 2. Cuerpo Opcional pero Informativo
+
+-   **Cuerpo detallado (si es necesario)**: Si el commit necesita más explicación, puedes añadir un cuerpo que detalle los cambios. El cuerpo debe estar separado del título por una línea en blanco y suele ser de 72 caracteres por línea.
+
+    ```         
+    Añade soporte para la autenticación OAuth.
+
+    - Implementa flujo de OAuth para la autenticación de usuarios.
+    - Añade dependencias necesarias en el archivo de configuración.
+    - Actualiza la documentación con instrucciones de uso.
+    ```
+
+### 3. Uso de Verbos en Tiempo Imperativo
+
+-   **Usa verbos en tiempo imperativo**: Es una convención utilizar verbos en tiempo imperativo, como "añade", "corrige", "elimina", etc.
+
+    ```         
+    Corrige el error en la validación de entradas
+    ```
+
+### 4. Tipo de Cambios
+
+-   **Especifica el tipo de cambio**: Algunas convenciones, como las de AngularJS, recomiendan especificar el tipo de cambio, por ejemplo:
+
+    -   `feat`: Una nueva funcionalidad.
+    -   `fix`: Una corrección de errores.
+    -   `docs`: Cambios en la documentación.
+    -   `style`: Cambios que no afectan el significado del código (formato, espacios en blanco, etc.).
+    -   `refactor`: Cambios en el código que no corrigen errores ni añaden características.
+    -   `test`: Añadir o corregir tests.
+    -   `chore`: Actualizaciones de tareas de construcción, configuración de herramientas, etc.
+
+    Ejemplo:
+
+    ```         
+    feat: añade soporte para la autenticación OAuth
+    ```
+
+### 5. Referencia a Issues o Tickets
+
+-   **Referenciar issues o tickets**: Si el commit resuelve un issue o está relacionado con un ticket, inclúyelo en el mensaje.
+
+    ```         
+    Corrige el error en la validación de entradas. Closes #42.
+    ```
+
+### Ejemplo Completo de Mensaje de Commit
+
+```         
+feat: añade soporte para la autenticación OAuth
+
+- Implementa flujo de OAuth para la autenticación de usuarios.
+- Añade dependencias necesarias en el archivo de configuración.
+- Actualiza la documentación con instrucciones de uso.
+
+Closes #42.
+```
+
+Seguir estas convenciones ayuda a mantener un historial de commits limpio y fácil de entender, lo cual es crucial para la colaboración y el mantenimiento del proyecto a largo plazo.
