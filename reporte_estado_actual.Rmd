@@ -132,3 +132,56 @@ Con `git checkout`, puedes cambiar de rama en tu repositorio local, pero no afec
 -   **`git push`**: Envía los cambios a la rama correspondiente en el repositorio remoto.
 
 Espero que esto aclare cómo puedes usar `git checkout` para trabajar en una rama específica y luego enviar los cambios con `git push`. Si tienes más preguntas o necesitas más detalles, ¡házmelo saber!
+
+Si quiero tener el status del repo local:
+
+```{bash}
+
+C:\Users\mcros\Documents\RepoMeetupRLadies\>git status 
+
+On branch main Your branch is up to date with 'origin/main'. 
+
+Changes not staged for commit: (use "git add <file>..." to update what will be committed) (use "git restore <file>..." to discard changes in working directory) modified: commit_messages.Rmd
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+```
+
+¡Exactamente! El comando `git status` te proporciona información detallada sobre el estado de tu repositorio local. Esto incluye:
+
+-   **Ramas**: Muestra en qué rama estás trabajando actualmente.
+-   **Cambios Sin Confirmar**: Lista los archivos que han sido modificados pero no aún confirmados.
+-   **Cambios Listos para Confirmar (Staged)**: Muestra los archivos que han sido añadidos al área de preparación y están listos para ser confirmados.
+-   **Archivos Sin Seguimiento**: Indica los archivos que existen en el directorio de trabajo pero que Git no está siguiendo.
+
+### Ejemplo del Comando `git status`
+
+Al ejecutar `git status`, podrías ver una salida como esta:
+
+``` bash
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   archivo_modificado.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   archivo_no_confirmado.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        nuevo_archivo.txt
+```
+
+### Desglose de la Salida
+
+-   **On branch main**: Estás en la rama `main`.
+-   **Your branch is up to date with 'origin/main'.**: Tu rama está actualizada con la rama remota `main`.
+-   **Changes to be committed**: Lista los archivos que están en el área de preparación y listos para ser confirmados (staged).
+-   **Changes not staged for commit**: Muestra los archivos modificados que no han sido añadidos al área de preparación.
+-   **Untracked files**: Indica los archivos que no están siendo rastreados por Git.
+
+Usar `git status` regularmente te ayuda a mantener un control claro sobre los cambios en tu repositorio local y te asegura que no se te escapen archivos sin seguimiento o cambios sin confirmar. Si necesitas más ayuda o tienes alguna otra pregunta, ¡házmelo saber!
