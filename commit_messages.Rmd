@@ -69,3 +69,20 @@ Closes #42.
 ```
 
 Seguir estas convenciones ayuda a mantener un historial de commits limpio y fácil de entender, lo cual es crucial para la colaboración y el mantenimiento del proyecto a largo plazo.
+
+## ¿Cuánto tiempo dejar pasar entre commit y commit?
+
+En general 1 hora es un tiempo prudencial. Si constato un error y quiero volver atrás solo pierdo una hora de trabajo. Más sería demasiado.
+
+Al hacer el commit solamente el cambio está en la copia local del repositorio, hay que hacer el push para compartirlo. Primero hay que hacer el pull por si alguien se metió en el repo e hizo un cambio.
+
+Al hacerlo no pierdo los cambios que haya realizado sobre mi versión... no es que se sobreescriba el estado actual de lo que tengo en mi máquina, lo que se hace es descargar el estado actual y si hubiera algún cambio sobre cosas que no tienen conflictos me actualizará esos cambios.
+
+Si se hace add se manda al staging area pero no llega al repo local, con commit llega al repo local y no podrá enviarse al repo remoto cuando se haga un push.
+
+O sea que hay cuatro estados:
+
+1.  Sin tracking
+2.  Añadido al staging area (con add)
+3.  Commited (en el repo local con commit)
+4.  Pushed (en el repo remoto con push)
