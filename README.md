@@ -1,7 +1,10 @@
 # RepoMeetupRLadies
 Este repo fue creado como ejemplo del meetup
 
+
 Tiene descripciones de todo lo que vaya aprendiendo de github.
+
+Esta es una línea conflictiva.
 
 Esta línea se la agregué en RStudio.
 
