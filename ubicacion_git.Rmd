@@ -1,0 +1,17 @@
+Sí, en Windows puedes usar el comando `where` para encontrar la ubicación de un ejecutable, similar al comando `which` en Linux. Aquí tienes cómo usarlo:
+
+### En la Línea de Comandos (CMD)
+```bash
+where git
+```
+
+### En PowerShell
+En PowerShell, puedes usar `where.exe` para evitar conflictos con el cmdlet `Where-Object`:
+```powershell
+where.exe git
+```
+
+Ambos comandos te mostrarán la ruta completa del ejecutable `git` en tu sistema.
+
+Si necesitas más información o tienes alguna otra pregunta, ¡házmelo saber!
+git

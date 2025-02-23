@@ -1,0 +1,5 @@
+### Qué hacemos si tenemos un proyecto preexistente?
+
+En ese caso creamos en github un proyecto, lo clonamos haciendo un proyecto nuevo con git en la máquina local.
+
+Agarramos los archivos del proyecto viejo, los copiamos y pegamos. Luego los añadimos, confirmamos y hacemos un push.

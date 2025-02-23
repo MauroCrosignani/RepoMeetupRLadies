@@ -1,0 +1,57 @@
+### Niveles de Autorización en GitHub
+
+En GitHub, los niveles de autorización varían según el tipo de cuenta (personal, organización o empresa) y el rol asignado. Aquí tienes un resumen de los niveles de autorización más comunes:
+
+#### Repositorios de Cuentas Personales
+
+1.  **Propietario del Repositorio**:
+    -   Control total sobre el repositorio.
+    -   Puede invitar colaboradores, cambiar la visibilidad del repositorio, renombrar ramas, fusionar solicitudes de extracción, eliminar el repositorio, y más.
+2.  **Colaboradores**:
+    -   Pueden clonar el repositorio, crear ramas, hacer commits, y abrir solicitudes de extracción.
+    -   No pueden cambiar la configuración del repositorio ni invitar a otros colaboradores.
+
+#### Repositorios de Organizaciones
+
+1.  **Propietario de la Organización**:
+    -   Acceso administrativo completo a la organización.
+    -   Puede gestionar miembros, equipos, y repositorios, así como la configuración de facturación.
+2.  **Administrador de Facturación**:
+    -   Puede gestionar la configuración de facturación de la organización.
+3.  **Miembro**:
+    -   Rol predeterminado para todos los demás.
+    -   Puede ver y colaborar en los repositorios a los que tiene acceso.
+4.  **Roles de Repositorio**:
+    -   **Read**: Puede ver el código y clonar el repositorio.
+    -   **Triage**: Puede gestionar issues y pull requests.
+    -   **Write**: Puede realizar commits directamente en el repositorio.
+    -   **Maintain**: Puede gestionar la configuración y administrar el repositorio.
+    -   **Admin**: Tiene control total sobre el repositorio, incluidas las configuraciones y los permisos.
+
+### Niveles de Autorización en GitLab
+
+En GitLab, los niveles de autorización también varían según el rol asignado. Aquí tienes un resumen de los niveles de autorización más comunes:
+
+1.  **Guest (Invitado)**:
+    -   Puede ver el contenido público y crear issues.
+2.  **Reporter (Reportero)**:
+    -   Puede ver y clonar el repositorio, así como crear y comentar en issues y merge requests.
+3.  **Developer (Desarrollador)**:
+    -   Puede realizar commits, crear ramas, y abrir merge requests.
+    -   Puede gestionar issues y etiquetar versiones.
+4.  **Maintainer (Mantenedor)**:
+    -   Puede fusionar merge requests, gestionar la configuración del proyecto, y administrar el repositorio.
+5.  **Owner (Propietario)**:
+    -   Tiene control total sobre el proyecto, incluidas las configuraciones y los permisos.
+
+Estos niveles de autorización permiten una gestión flexible y segura de los repositorios, asegurando que cada usuario tenga el acceso adecuado según su rol y responsabilidades.
+
+Si necesitas más detalles sobre algún nivel de autorización específico o tienes alguna otra pregunta, ¡házmelo saber!
+
+:   [Permisos de acceso en GitHub](https://docs.github.com/es/get-started/learning-about-github/access-permissions-on-github)
+
+:   [Niveles de permisos para un repositorio de una cuenta personal](https://docs.github.com/es/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-personal-account-repository)
+
+:   [GitHub y la Gestión de Repositorios](https://www.chucksacademy.com/es/topic/git-basic/management)
+
+:   [Gitlab Management - Administración de permisos de usuario en Gitlab](https://programmerclick.com/article/18332356767/)

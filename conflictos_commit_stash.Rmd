@@ -1,0 +1,75 @@
+Hubo cambios en el repo remoto que están en conflicto con cambios en archivos modificados y no commiteados en el repo local:
+
+Al hacer pull 
+
+>>> C:/Program Files/Git/cmd/git.exe pull From https://github.com/MauroCrosignani/RepoMeetupRLadies ca1b2ae..b385d25 main -> origin/main error: Your local changes to the following files would be overwritten by merge: README.md Please commit your changes or stash them before you merge. Updating ca1b2ae..b385d25 Aborting
+
+El error que estás viendo indica que tienes cambios locales en el archivo `README.md` que no han sido confirmados (commit) y que serían sobrescritos por el merge al hacer el pull. Para resolver esto, tienes dos opciones principales: hacer commit de tus cambios locales o guardarlos en el stash antes de hacer el pull.
+
+### Opción 1: Hacer Commit de tus Cambios Locales
+1. **Añadir los cambios al área de preparación**:
+    ```bash
+    git add README.md
+    ```
+
+2. **Hacer commit de los cambios**:
+    ```bash
+    git commit -m "Describe tus cambios aquí"
+    ```
+
+3. **Hacer pull para actualizar tu rama local**:
+    ```bash
+    git pull
+    ```
+
+### Opción 2: Usar Stash para Guardar los Cambios Temporalmente
+1. **Guardar tus cambios en el stash**:
+    ```bash
+    git stash
+    ```
+
+2. **Hacer pull para actualizar tu rama local**:
+    ```bash
+    git pull
+    ```
+
+3. **Restaurar tus cambios desde el stash**:
+    ```bash
+    git stash pop
+    ```
+
+### Resumen:
+- **Commit**: Haces commit de tus cambios locales antes de hacer el pull.
+- **Stash**: Guardas tus cambios locales temporalmente, haces el pull y luego restauras los cambios.
+
+Elige la opción que mejor se adapte a tu flujo de trabajo. Si necesitas más ayuda o tienes más preguntas, ¡házmelo saber!
+
+hacer commit inmediatamente sería si estoy seguro que quiero conservar mi versión y mandarlo a un stash es para decidir luego?
+
+Exactamente. Aquí tienes un resumen de cuándo usar cada opción:
+
+### Hacer Commit Inmediatamente
+- **Cuándo**: Cuando estás seguro de que deseas conservar los cambios que has realizado y quieres añadirlos permanentemente al historial del repositorio.
+- **Por qué**: Esto garantiza que tus cambios no se pierdan y forma parte del historial del proyecto. Es útil si tus cambios son definitivos y estás listo para compartirlos con otros colaboradores.
+- **Cómo**:
+  ```bash
+  git add README.md
+  git commit -m "Describe tus cambios aquí"
+  git pull
+  ```
+
+### Usar Stash
+- **Cuándo**: Cuando no estás seguro de si quieres conservar los cambios actuales o simplemente deseas actualizar tu rama local antes de decidir.
+- **Por qué**: Usar stash es útil para guardar temporalmente tus cambios sin comprometerte a ellos. Puedes restaurarlos después del pull para revisarlos y decidir si quieres hacer commit o descartarlos.
+- **Cómo**:
+  ```bash
+  git stash
+  git pull
+  git stash pop
+  ```
+
+### Resumen
+- **Commit**: Ideal para cambios que deseas conservar permanentemente.
+- **Stash**: Ideal para cambios temporales o cuando necesitas decidir más tarde.
+
+Espero que esto te ayude a decidir cuándo usar cada opción. Si tienes más preguntas o necesitas más información, ¡házmelo saber!
