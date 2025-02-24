@@ -102,14 +102,15 @@ Espero que esto te ayude a decidir cuándo usar cada opción. Si tienes
 más preguntas o necesitas más información, ¡házmelo saber!
 
 Si commiteo los cambios conflictivos que hice en el repo local me da ok.
-Y luego si hago push sucede esto: \>\>\> C:/Program
-Files/Git/cmd/git.exe push origin HEAD:refs/heads/main To
-<https://github.com/MauroCrosignani/RepoMeetupRLadies.git> ! [rejected]
-HEAD -\> main (non-fast-forward) error: failed to push some refs to
-'<https://github.com/MauroCrosignani/RepoMeetupRLadies.git>' hint:
-Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart. Integrate the remote changes (e.g. hint:
-'git pull ...') before pushing again. hint: See the 'Note about
+Y luego si hago push sucede esto:
+
+\>\>\> C:/Program Files/Git/cmd/git.exe push origin HEAD:refs/heads/main
+To <https://github.com/MauroCrosignani/RepoMeetupRLadies.git> !
+[rejected] HEAD -\> main (non-fast-forward) error: failed to push some
+refs to '<https://github.com/MauroCrosignani/RepoMeetupRLadies.git>'
+hint: Updates were rejected because the tip of your current branch is
+behind hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again. hint: See the 'Note about
 fast-forwards' in 'git push --help' for details.
 
 No me deja hacer fast forward (pasar al siguiente estado de la cadena)
@@ -183,6 +184,13 @@ el conflicto:
 Resolver conflictos es una parte común del trabajo con Git,
 especialmente en proyectos colaborativos. Si necesitas más detalles o
 tienes alguna otra pregunta, ¡házmelo saber!
+
+Si perdemos el hilo de lo que estamos haciendo al editar el archivo con
+conflicto y queremos abortar el merge:
+
+```{bash}
+git merge –abort t
+```
 
 ### qué diferencias prácticas hay entre hacer git pull --f-only en lugar de utilizar el stash?
 

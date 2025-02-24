@@ -254,3 +254,18 @@ aceb219 HEAD@{7}: commit: Commit desde Bash
 7de6244 HEAD@{9}: commit: Agrega línea y Rmd nuevo
 112d9f0 HEAD@{10}: clone: from https://github.com/MauroCrosignani/RepoMeetupRLadies.git
 ```
+
+Fetch Commits:
+
+git fetch
+
+```{bash}
+git fetch
+```
+
+Create and stitch to a branch
+
+```{bash}
+git branch [branch-name]
+git checkout [branch-name]
+```
