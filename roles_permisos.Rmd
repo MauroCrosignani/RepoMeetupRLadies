@@ -55,3 +55,75 @@ Si necesitas más detalles sobre algún nivel de autorización específico o tie
 :   [GitHub y la Gestión de Repositorios](https://www.chucksacademy.com/es/topic/git-basic/management)
 
 :   [Gitlab Management - Administración de permisos de usuario en Gitlab](https://programmerclick.com/article/18332356767/)
+
+El comando `git config --global` se usa para configurar opciones globales en Git. Estas configuraciones aplican a todos los repositorios en el sistema del usuario. Aquí tienes algunos casos de uso comunes:
+
+### Configuraciones Comunes con `git config --global`
+
+1.  **Establecer Nombre de Usuario**:
+
+    -   Configura tu nombre de usuario para todos los commits:
+
+    ``` bash
+    git config --global user.name "Tu Nombre"
+    ```
+
+2.  **Establecer Correo Electrónico**:
+
+    -   Configura tu correo electrónico para todos los commits:
+
+    ``` bash
+    git config --global user.email "tuemail@ejemplo.com"
+    ```
+
+3.  **Configuración de Editor**:
+
+    -   Establece tu editor de texto preferido para Git:
+
+    ``` bash
+    git config --global core.editor "nano"
+    ```
+
+4.  **Configuración de Alias**:
+
+    -   Crea alias para comandos de Git para simplificar su uso:
+
+    ``` bash
+    git config --global alias.st status
+    git config --global alias.co checkout
+    git config --global alias.ci commit
+    git config --global alias.br branch
+    ```
+
+5.  **Configuración de Manejo de Finales de Línea**:
+
+    -   Configura cómo Git maneja los finales de línea en diferentes sistemas operativos:
+
+    ``` bash
+    git config --global core.autocrlf true
+    ```
+
+### Ejemplo Práctico
+
+Supongamos que deseas establecer tu nombre y correo electrónico globalmente:
+
+``` bash
+git config --global user.name "Mauro Crosignani"
+git config --global user.email "mauro@ejemplo.com"
+```
+
+### Verificar Configuraciones Globales
+
+Para verificar las configuraciones globales que has establecido, puedes usar:
+
+``` bash
+git config --global --list
+```
+
+### Resumen
+
+-   **`git config --global`**: Establece configuraciones globales para todos los repositorios en tu sistema.
+-   **Configuraciones Comunes**: Nombre de usuario, correo electrónico, editor de texto, alias, manejo de finales de línea.
+-   **Verificación**: Usa `git config --global --list` para verificar las configuraciones globales.
+
+Si necesitas más detalles o tienes alguna otra pregunta sobre Git, ¡házmelo saber!

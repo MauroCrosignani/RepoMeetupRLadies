@@ -1,0 +1,83 @@
+El comando `git diff` se utiliza para mostrar las diferencias entre commits, ramas, archivos específicos o el estado de tu repositorio actual. Aquí tienes algunas formas comunes de usar `git diff`:
+
+### Comparar Archivos en el Directorio de Trabajo
+
+1. **Ver Cambios No Confirmados**:
+   - Muestra las diferencias entre los cambios no confirmados en el directorio de trabajo y el último commit:
+   ```bash
+   git diff
+   ```
+
+2. **Comparar Archivos en el Área de Preparación**:
+   - Muestra las diferencias entre los archivos en el área de preparación y el último commit:
+   ```bash
+   git diff --staged
+   ```
+
+### Comparar Commits y Ramas
+
+1. **Comparar Commits Específicos**:
+   - Muestra las diferencias entre dos commits específicos:
+   ```bash
+   git diff commit1 commit2
+   ```
+
+2. **Comparar Ramas**:
+   - Muestra las diferencias entre dos ramas:
+   ```bash
+   git diff rama1 rama2
+   ```
+
+### Comparar Archivos Específicos
+
+1. **Comparar un Archivo en Particular**:
+   - Muestra las diferencias de un archivo específico entre el directorio de trabajo y el último commit:
+   ```bash
+   git diff nombre-archivo.txt
+   ```
+
+### Opciones Adicionales
+
+- **Mostrar Diferencias en Modo Resumido**:
+  - Muestra un resumen de las diferencias en lugar del contenido completo:
+  ```bash
+  git diff --stat
+  ```
+
+- **Mostrar Diferencias con Contexto**:
+  - Añade contexto a las diferencias para una mejor comprensión:
+  ```bash
+  git diff -U3
+  ```
+
+### Ejemplo Práctico
+
+1. **Ver Cambios No Confirmados**:
+   ```bash
+   git diff
+   ```
+
+2. **Ver Cambios en el Área de Preparación**:
+   ```bash
+   git diff --staged
+   ```
+
+3. **Comparar dos Commits Específicos**:
+   ```bash
+   git diff abc123 def456
+   ```
+
+4. **Comparar Ramas `main` y `develop`**:
+   ```bash
+   git diff main develop
+   ```
+
+### Resumen
+
+- **`git diff`**: Muestra las diferencias entre el estado actual del directorio de trabajo y el último commit.
+- **`git diff --staged`**: Muestra las diferencias entre los archivos en el área de preparación y el último commit.
+- **`git diff commit1 commit2`**: Compara dos commits específicos.
+- **`git diff rama1 rama2`**: Compara dos ramas.
+- **`git diff nombre-archivo.txt`**: Compara un archivo específico.
+
+Espero que esto te haya dado una buena comprensión de cómo usar `git diff`. Si tienes más preguntas o necesitas más detalles, ¡házmelo saber!

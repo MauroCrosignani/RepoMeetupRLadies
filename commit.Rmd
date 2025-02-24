@@ -1,0 +1,256 @@
+### si hago '''commit -m "mensaje de commit" ''' no estoy indicando qué archivos estoy enviando al repo local, por lo que todos los archivos que estuvieran trackeados y modificados serán actualizados en el repo local?
+
+Exacto. Cuando haces un `commit` sin especificar qué archivos incluir, Git toma todos los archivos que han sido agregados al área de preparación (staged) y los incluye en el commit.
+
+### Proceso de Commit en Git
+
+1.  **Modificar Archivos**:
+
+    -   Realiza cambios en los archivos del repositorio.
+
+2.  **Agregar Archivos al Área de Preparación**:
+
+    -   Usa el comando `git add` para especificar los archivos que deseas incluir en el commit.
+
+    ``` bash
+    git add archivo1.txt archivo2.txt
+    ```
+
+    -   También puedes usar `git add .` para agregar todos los archivos modificados al área de preparación.
+
+3.  **Confirmar los Cambios con `commit`**:
+
+    -   Luego, usa `git commit -m "mensaje de commit"` para confirmar los cambios que has agregado al área de preparación.
+
+    ``` bash
+    git commit -m "Descripción del commit"
+    ```
+
+### Ejemplo Práctico
+
+Supongamos que has modificado tres archivos: `archivo1.txt`, `archivo2.txt` y `archivo3.txt`. Si solo deseas confirmar `archivo1.txt` y `archivo2.txt`:
+
+1.  **Agregar Archivos Específicos**:
+
+    ``` bash
+    git add archivo1.txt archivo2.txt
+    ```
+
+2.  **Confirmar los Cambios**:
+
+    ``` bash
+    git commit -m "Confirmar cambios en archivo1 y archivo2"
+    ```
+
+En este caso, `archivo3.txt` no será parte del commit porque no fue agregado al área de preparación.
+
+### Resumen
+
+-   **`git add`**: Especifica qué archivos se incluirán en el commit.
+-   **`git commit -m "mensaje de commit"`**: Confirma los archivos que han sido agregados al área de preparación.
+-   Si no agregas archivos explícitamente, Git solo incluirá aquellos que ya están en el área de preparación.
+
+Si tienes más preguntas o necesitas aclarar algo más sobre Git, ¡házmelo saber!
+
+### cuando hago referencia al nombre del archivo, es necesario indicar la ruta completa desde la "raíz" de la carpeta del repositorio local o no?
+
+No es necesario indicar la ruta completa del archivo desde la "raíz" de la carpeta del repositorio local. Puedes usar rutas relativas para referenciar archivos, y Git lo entenderá correctamente dentro del contexto del repositorio.
+
+### Ejemplo:
+
+Supongamos que la estructura de tu repositorio es la siguiente:
+
+```         
+/tu-repositorio
+  /carpeta1
+    archivo1.txt
+  /carpeta2
+    archivo2.txt
+  archivo3.txt
+```
+
+Si estás trabajando en la raíz del repositorio y deseas agregar `archivo1.txt`, `archivo2.txt` y `archivo3.txt` al área de preparación, puedes usar rutas relativas:
+
+``` bash
+git add carpeta1/archivo1.txt carpeta2/archivo2.txt archivo3.txt
+```
+
+Incluso si estás en una subcarpeta, puedes usar rutas relativas. Por ejemplo, si estás en `carpeta1` y deseas agregar `archivo1.txt` y `../archivo3.txt`, puedes hacerlo así:
+
+``` bash
+cd carpeta1
+git add archivo1.txt ../archivo3.txt
+```
+
+### Resumen
+
+-   **Rutas Relativas**: No es necesario indicar la ruta completa desde la raíz del repositorio; puedes usar rutas relativas para referenciar los archivos.
+-   **Git lo entiende**: Git entenderá correctamente las rutas relativas en el contexto de tu repositorio.
+
+Esto te da flexibilidad para referenciar archivos de manera eficiente dentro de tu repositorio. Si tienes más preguntas o necesitas más detalles, ¡házmelo saber!
+
+### y si no pongo ninguna ruta git entenderá que es el archivo con ese nombre que está en la carpeta del repo local?
+
+Sí, Git interpretará que te refieres al archivo en la carpeta actual del repositorio. Si estás en la raíz del repositorio y ejecutas:
+
+``` bash
+git add archivo.txt
+```
+
+Git añadirá `archivo.txt` ubicado en la raíz del repositorio.
+
+Si estás en una subcarpeta y haces referencia a un archivo sin especificar una ruta, Git asumirá que te refieres a ese archivo dentro de la subcarpeta actual. Por ejemplo, si estás en `carpeta1`:
+
+``` bash
+cd carpeta1
+git add archivo1.txt
+```
+
+Esto añadirá `archivo1.txt` en `carpeta1` al área de preparación.
+
+### Resumen
+
+-   **Sin Rutas Especificadas**: Git asumirá que el archivo está en la carpeta actual en la que estás trabajando.
+-   **Uso de Rutas Relativas**: Puedes seguir usando rutas relativas para mayor flexibilidad.
+
+Esto te permite trabajar de manera eficiente con tus archivos en Git. Si tienes más preguntas o necesitas más detalles, ¡házmelo saber!
+
+### y si hago un commit con -m el nombre del archivo tiene que ir antes o después del comentario?
+
+Nota Mauro: si bien se podría agregar el nombre del archivo después del comentario git commit -m "\<comentario\>" \<nombre_archivo\> cuando le pregunto a la IA me indica esto:
+
+Cuando utilizas `git commit -m`, el nombre del archivo no se incluye en el comando del commit. El `-m` se usa para especificar el mensaje del commit. Los archivos que se incluirán en el commit ya deberían haber sido añadidos al área de preparación (`staged`) usando `git add`. Aquí está el flujo correcto:
+
+### Pasos para Confirmar Cambios
+
+1.  **Agregar Archivos al Área de Preparación**:
+
+    -   Usa `git add` para especificar los archivos que deseas incluir en el commit.
+
+    ``` bash
+    git add archivo1.txt archivo2.txt
+    ```
+
+2.  **Hacer el Commit con un Mensaje**:
+
+    -   Usa `git commit -m "mensaje de commit"` para confirmar los cambios. No necesitas incluir los nombres de los archivos en este comando.
+
+    ``` bash
+    git commit -m "Descripción del commit"
+    ```
+
+### Ejemplo Práctico
+
+1.  **Agregar Archivos Específicos**:
+
+    ``` bash
+    git add archivo1.txt archivo2.txt
+    ```
+
+2.  **Hacer el Commit con un Mensaje**:
+
+    ``` bash
+    git commit -m "Añade nueva funcionalidad a archivo1 y archivo2"
+    ```
+
+### Resumen
+
+-   **`git add nombre-del-archivo`**: Agrega los archivos al área de preparación.
+-   **`git commit -m "mensaje de commit"`**: Confirmar los cambios con el mensaje de commit, sin incluir nombres de archivos.
+
+De este modo, los archivos que añadiste al área de preparación serán incluidos en el commit, y el mensaje del commit se usará para describir los cambios. Si tienes más preguntas o necesitas más detalles, ¡házmelo saber!
+
+Si después de hacer un commit hago git status me indicará la cantidad de commits adelante de origin/main que ya avancé desde la última versión base que tengo en el repo local
+
+Sí, después de hacer un commit, al ejecutar `git status`, Git te indicará si tu rama local está por delante de la rama remota (`origin/main`). Sin embargo, la información específica sobre la cantidad de commits por delante o por detrás de la rama remota no se muestra directamente en `git status`. Para obtener esa información detallada, puedes usar `git status` en combinación con `git log` o `git reflog`.
+
+### Ejemplo de `git status`
+
+``` bash
+git status
+```
+
+Podría mostrar algo como esto si tu rama local está por delante de la rama remota:
+
+``` plaintext
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+```
+
+### Otras Herramientas para Ver la Cantidad de Commits
+
+1.  **`git log`**:
+
+    -   Puedes usar `git log` para ver los commits en tu rama local y comparar con los de la rama remota.
+
+    ``` bash
+    git log origin/main..HEAD
+    ```
+
+    Esto mostrará una lista de los commits en tu rama local que no están en `origin/main`.
+
+2.  **`git reflog`**:
+
+    -   `git reflog` también puede ayudarte a ver el historial de los commits realizados en tu rama local.
+
+    ``` bash
+    git reflog
+    ```
+
+### Resumen
+
+-   **`git status`**: Te indicará si tu rama local está por delante de la rama remota y sugerirá hacer `git push`.
+-   **`git log origin/main..HEAD`**: Mostrará la lista de commits en tu rama local que no están en la rama remota.
+-   **`git reflog`**: Mostrará el historial de commits recientes en tu rama local.
+
+Si necesitas más detalles sobre alguno de estos comandos o alguna otra pregunta relacionada con Git, ¡házmelo saber!
+
+Para ver el status:
+
+```{bash}
+C:\Users\mcros\Documents\RepoMeetupRLadies>git status On branch main Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit: (use "git add <file>..." to update what will be committed) (use "git restore <file>..." to discard changes in working directory) modified: commit_messages.Rmd
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+```{bash}
+C:\Users\mcros\Documents\RepoMeetupRLadies>git log origin/main..HEAD
+
+C:\Users\mcros\Documents\RepoMeetupRLadies>git reflog
+1e5ff0f (HEAD -> main, origin/main, origin/HEAD) HEAD@{0}: commit (amend): Conocer configuración y casos excepcionales 
+b15d579 HEAD@{1}: commit: conocer configuración y casos excepcionales 
+bbf22e7 HEAD@{2}: commit: Agrega información para resolver conflictos 
+21cab9e HEAD@{3}: commit (merge): Resuelve conflicto en README.md
+f1bad2a HEAD@{4}: commit: Agrega información usar git, roles, conflictos, ubicación git 
+ca1b2ae HEAD@{5}: pull: Fast-forward 
+aceb219 HEAD@{6}: commit: Commit desde Bash 
+11798f5 HEAD@{7}: commit: Agrega tiempo y resumen de estados
+7de6244 HEAD@{8}: commit: Agrega línea y Rmd nuevo 
+112d9f0 HEAD@{9}: clone: from https://github.com/MauroCrosignani/RepoMeetupRLadies.git
+```
+
+después de hacer un commit nuevo vemos la info y el comentario, tanto en `git log origin/main..HEAD` como en el `git reflog:`
+
+```{bash}
+C:\Users\mcros\Documents\RepoMeetupRLadies>git log origin/main..HEAD
+commit eb8660bd1a2edc3c9e8040566fcb917cae5a177a (HEAD -> main)
+Author: Mauro Crosignani <mcrosignani@hotmail.com>
+Date:   Sun Feb 23 20:25:20 2025 -0300
+
+    agrega sobre status del repo local
+
+C:\Users\mcros\Documents\RepoMeetupRLadies>git reflog
+eb8660b (HEAD -> main) HEAD@{0}: commit: agrega sobre status del repo local
+1e5ff0f (origin/main, origin/HEAD) HEAD@{1}: commit (amend): Conocer configuración y casos excepcionales
+b15d579 HEAD@{2}: commit: conocer configuración y casos excepcionales
+bbf22e7 HEAD@{3}: commit: Agrega información para resolver conflictos
+21cab9e HEAD@{4}: commit (merge): Resuelve conflicto en README.md
+f1bad2a HEAD@{5}: commit: Agrega información usar git, roles, conflictos, ubicación gitca1b2ae HEAD@{6}: pull: Fast-forward
+aceb219 HEAD@{7}: commit: Commit desde Bash
+11798f5 HEAD@{8}: commit: Agrega tiempo y resumen de estados
+7de6244 HEAD@{9}: commit: Agrega línea y Rmd nuevo
+112d9f0 HEAD@{10}: clone: from https://github.com/MauroCrosignani/RepoMeetupRLadies.git
+```

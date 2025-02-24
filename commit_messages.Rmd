@@ -86,3 +86,84 @@ O sea que hay cuatro estados:
 2.  Añadido al staging area (con add)
 3.  Commited (en el repo local con commit)
 4.  Pushed (en el repo remoto con push)
+
+### cuando se hace un commit y el comentario no quedó bien escrito, cómo puedo corregirlo?
+
+Puedes corregir el mensaje de un commit utilizando el comando `git commit --amend`. Esto te permite modificar el mensaje del commit más reciente. Aquí tienes cómo hacerlo:
+
+### Pasos para Corregir un Mensaje de Commit
+
+1.  **Abrir la Terminal**:
+    -   Navega al directorio de tu repositorio en la terminal.
+2.  **Modificar el Mensaje del Último Commit**:
+    -   Usa el comando `git commit --amend` para abrir el editor de texto que usas para los mensajes de commit (por ejemplo, Vim, Nano, etc.):
+
+        ``` bash
+        git commit --amend
+        ```
+3.  **Editar el Mensaje**:
+    -   Edita el mensaje del commit como desees en el editor de texto.
+    -   Guarda y cierra el editor de texto.
+4.  **Empujar el Commit Modificado al Remoto**:
+    -   Si ya habías empujado el commit al repositorio remoto antes de modificar el mensaje, necesitarás forzar el push:
+
+        ``` bash
+        git push --force
+        ```
+
+    -   **Nota**: Ten cuidado al usar `--force`, ya que sobrescribirá el historial del repositorio remoto. Asegúrate de que es lo que necesitas y de que tus compañeros de equipo estén al tanto de este cambio.
+
+### Ejemplo Práctico
+
+1.  **Ejecutar `git commit --amend`**:
+
+    ``` bash
+    git commit --amend
+    ```
+
+2.  **Editar el Mensaje del Commit**:
+
+    ``` plaintext
+    # Escribe el nuevo mensaje del commit
+    Nueva descripción del commit
+    ```
+
+3.  **Forzar el Push si el Commit ya fue Empujado**:
+
+    ``` bash
+    git push --force
+    ```
+
+### Resumen
+
+-   Usa `git commit --amend` para modificar el mensaje del último commit.
+-   Edita el mensaje en el editor de texto y guarda los cambios.
+-   Si es necesario, usa `git push --force` para actualizar el commit en el remoto.
+
+Este método te permite corregir rápidamente cualquier error en el mensaje del commit. Si tienes más preguntas o necesitas más detalles, ¡házmelo saber!
+
+### Así sería? '''\>\>\> C:/Program Files/Git/cmd/git.exe commit -F C:/Users/mcros/AppData/Local/Temp/Rtmp2XQGvE/git-commit-message-58cc1a31c72.txt --amend
+[main 1e5ff0f] Conocer configuración y casos excepcionales
+ Date: Sun Feb 23 19:28:01 2025 -0300
+ 2 files changed, 136 insertions(+)
+ create mode 100644 reporte_estado_actual.Rmd '''
+
+¡Exactamente! Tu comando `git commit --amend` se ha ejecutado correctamente y ha actualizado el mensaje del commit más reciente. Aquí está el resultado:
+
+``` bash
+>>> C:/Program Files/Git/cmd/git.exe commit -F C:/Users/mcros/AppData/Local/Temp/Rtmp2XQGvE/git-commit-message-58cc1a31c72.txt --amend
+[main 1e5ff0f] Conocer configuración y casos excepcionales
+ Date: Sun Feb 23 19:28:01 2025 -0300
+ 2 files changed, 136 insertions(+)
+ create mode 100644 reporte_estado_actual.Rmd
+```
+
+El mensaje del commit ahora es "Conocer configuración y casos excepcionales" y los cambios han sido confirmados.
+
+Si este commit ya había sido enviado al remoto, no olvides usar `git push --force` para actualizar el commit en el repositorio remoto:
+
+``` bash
+git push --force
+```
+
+Eso debería actualizar todo correctamente. Si necesitas más ayuda o tienes alguna otra pregunta, ¡házmelo saber!

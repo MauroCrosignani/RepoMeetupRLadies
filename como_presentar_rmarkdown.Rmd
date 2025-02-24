@@ -1,0 +1,13 @@
+En RMarkdown tenemos que editar el encabezado para qeu aparezca el keep_md = true, tiene que quedar dependiendo de output y html_document para que luego aparezca bien presentado en github
+
+```
+---
+title: "PruebaMiRepo"
+output:
+    html_document:
+        keep_md:true
+date: "2023-08-09"
+
+---
+
+```

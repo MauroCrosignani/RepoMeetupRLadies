@@ -1,142 +1,257 @@
-Hubo cambios en el repo remoto que están en conflicto con cambios en archivos modificados y no commiteados en el repo local:
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
 
-Al hacer pull 
+Hubo cambios en el repo remoto que están en conflicto con cambios en
+archivos modificados y no commiteados en el repo local:
 
->>> C:/Program Files/Git/cmd/git.exe pull From https://github.com/MauroCrosignani/RepoMeetupRLadies ca1b2ae..b385d25 main -> origin/main error: Your local changes to the following files would be overwritten by merge: README.md Please commit your changes or stash them before you merge. Updating ca1b2ae..b385d25 Aborting
+Al hacer pull
 
-El error que estás viendo indica que tienes cambios locales en el archivo `README.md` que no han sido confirmados (commit) y que serían sobrescritos por el merge al hacer el pull. Para resolver esto, tienes dos opciones principales: hacer commit de tus cambios locales o guardarlos en el stash antes de hacer el pull.
+> > > C:/Program Files/Git/cmd/git.exe pull From
+> > > <https://github.com/MauroCrosignani/RepoMeetupRLadies>
+> > > ca1b2ae..b385d25 main -\> origin/main error: Your local changes to
+> > > the following files would be overwritten by merge: README.md
+> > > Please commit your changes or stash them before you merge.
+> > > Updating ca1b2ae..b385d25 Aborting
+
+El error que estás viendo indica que tienes cambios locales en el
+archivo `README.md` que no han sido confirmados (commit) y que serían
+sobrescritos por el merge al hacer el pull. Para resolver esto, tienes
+dos opciones principales: hacer commit de tus cambios locales o
+guardarlos en el stash antes de hacer el pull.
 
 ### Opción 1: Hacer Commit de tus Cambios Locales
-1. **Añadir los cambios al área de preparación**:
-    ```bash
-    git add README.md
-    ```
 
-2. **Hacer commit de los cambios**:
-    ```bash
-    git commit -m "Describe tus cambios aquí"
-    ```
+1.  **Añadir los cambios al área de preparación**:
+    `bash     git add README.md`
 
-3. **Hacer pull para actualizar tu rama local**:
-    ```bash
-    git pull
-    ```
+2.  **Hacer commit de los cambios**:
+    `bash     git commit -m "Describe tus cambios aquí"`
+
+3.  **Hacer pull para actualizar tu rama local**: `bash     git pull`
 
 ### Opción 2: Usar Stash para Guardar los Cambios Temporalmente
-1. **Guardar tus cambios en el stash**:
-    ```bash
-    git stash
-    ```
 
-2. **Hacer pull para actualizar tu rama local**:
-    ```bash
-    git pull
-    ```
+1.  **Guardar tus cambios en el stash**: `bash     git stash`
 
-3. **Restaurar tus cambios desde el stash**:
-    ```bash
-    git stash pop
-    ```
+2.  **Hacer pull para actualizar tu rama local**: `bash     git pull`
+
+3.  **Restaurar tus cambios desde el stash**: `bash     git stash pop`
 
 ### Resumen:
-- **Commit**: Haces commit de tus cambios locales antes de hacer el pull.
-- **Stash**: Guardas tus cambios locales temporalmente, haces el pull y luego restauras los cambios.
 
-Elige la opción que mejor se adapte a tu flujo de trabajo. Si necesitas más ayuda o tienes más preguntas, ¡házmelo saber!
+-   **Commit**: Haces commit de tus cambios locales antes de hacer el
+    pull.
+-   **Stash**: Guardas tus cambios locales temporalmente, haces el pull
+    y luego restauras los cambios.
 
-hacer commit inmediatamente sería si estoy seguro que quiero conservar mi versión y mandarlo a un stash es para decidir luego?
+Elige la opción que mejor se adapte a tu flujo de trabajo. Si necesitas
+más ayuda o tienes más preguntas, ¡házmelo saber!
+
+hacer commit inmediatamente sería si estoy seguro que quiero conservar
+mi versión y mandarlo a un stash es para decidir luego?
 
 Exactamente. Aquí tienes un resumen de cuándo usar cada opción:
 
 ### Hacer Commit Inmediatamente
-- **Cuándo**: Cuando estás seguro de que deseas conservar los cambios que has realizado y quieres añadirlos permanentemente al historial del repositorio.
-- **Por qué**: Esto garantiza que tus cambios no se pierdan y forma parte del historial del proyecto. Es útil si tus cambios son definitivos y estás listo para compartirlos con otros colaboradores.
-- **Cómo**:
-  ```bash
-  git add README.md
-  git commit -m "Describe tus cambios aquí"
-  git pull
-  ```
+
+-   **Cuándo**: Cuando estás seguro de que deseas conservar los cambios
+    que has realizado y quieres añadirlos permanentemente al historial
+    del repositorio.
+
+-   **Por qué**: Esto garantiza que tus cambios no se pierdan y forma
+    parte del historial del proyecto. Es útil si tus cambios son
+    definitivos y estás listo para compartirlos con otros colaboradores.
+
+-   **Cómo**:
+
+    ``` bash
+    git add README.md
+    git commit -m "Describe tus cambios aquí"
+    git pull
+    ```
 
 ### Usar Stash
-- **Cuándo**: Cuando no estás seguro de si quieres conservar los cambios actuales o simplemente deseas actualizar tu rama local antes de decidir.
-- **Por qué**: Usar stash es útil para guardar temporalmente tus cambios sin comprometerte a ellos. Puedes restaurarlos después del pull para revisarlos y decidir si quieres hacer commit o descartarlos.
-- **Cómo**:
-  ```bash
-  git stash
-  git pull
-  git stash pop
-  ```
+
+-   **Cuándo**: Cuando no estás seguro de si quieres conservar los
+    cambios actuales o simplemente deseas actualizar tu rama local antes
+    de decidir.
+
+-   **Por qué**: Usar stash es útil para guardar temporalmente tus
+    cambios sin comprometerte a ellos. Puedes restaurarlos después del
+    pull para revisarlos y decidir si quieres hacer commit o
+    descartarlos.
+
+-   **Cómo**:
+
+    ``` bash
+    git stash
+    git pull
+    git stash pop
+    ```
 
 ### Resumen
-- **Commit**: Ideal para cambios que deseas conservar permanentemente.
-- **Stash**: Ideal para cambios temporales o cuando necesitas decidir más tarde.
 
-Espero que esto te ayude a decidir cuándo usar cada opción. Si tienes más preguntas o necesitas más información, ¡házmelo saber!
+-   **Commit**: Ideal para cambios que deseas conservar permanentemente.
+-   **Stash**: Ideal para cambios temporales o cuando necesitas decidir
+    más tarde.
 
+Espero que esto te ayude a decidir cuándo usar cada opción. Si tienes
+más preguntas o necesitas más información, ¡házmelo saber!
 
-Si commiteo los cambios conflictivos que hice en el repo local me da ok. Y luego si hago push sucede esto:
->>> C:/Program Files/Git/cmd/git.exe push origin HEAD:refs/heads/main
-To https://github.com/MauroCrosignani/RepoMeetupRLadies.git
- ! [rejected]        HEAD -> main (non-fast-forward)
-error: failed to push some refs to 'https://github.com/MauroCrosignani/RepoMeetupRLadies.git'
-hint: Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart. Integrate the remote changes (e.g.
-hint: 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Si commiteo los cambios conflictivos que hice en el repo local me da ok.
+Y luego si hago push sucede esto: \>\>\> C:/Program
+Files/Git/cmd/git.exe push origin HEAD:refs/heads/main To
+<https://github.com/MauroCrosignani/RepoMeetupRLadies.git> ! [rejected]
+HEAD -\> main (non-fast-forward) error: failed to push some refs to
+'<https://github.com/MauroCrosignani/RepoMeetupRLadies.git>' hint:
+Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g. hint:
+'git pull ...') before pushing again. hint: See the 'Note about
+fast-forwards' in 'git push --help' for details.
 
-No me deja hacer fast forward (pasar al siguiente estado de la cadena) porque estoy por detrás del head remoto. Primero tengo que integrar los cambios que hubo en el remoto (que en este caso incluyen una edición a mano conflictiva con lo que tengo en el repo local).
+No me deja hacer fast forward (pasar al siguiente estado de la cadena)
+porque estoy por detrás del head remoto. Primero tengo que integrar los
+cambios que hubo en el remoto (que en este caso incluyen una edición a
+mano conflictiva con lo que tengo en el repo local).
 
-Al hacer pull (que es lo que me pide que haga previo a intentar hacer push) sucede esto:
->>> C:/Program Files/Git/cmd/git.exe pull
-Auto-merging README.md
-CONFLICT (content): Merge conflict in README.md
+Al hacer pull (que es lo que me pide que haga previo a intentar hacer
+push) sucede esto: \>\>\> C:/Program Files/Git/cmd/git.exe pull
+Auto-merging README.md CONFLICT (content): Merge conflict in README.md
 Automatic merge failed; fix conflicts and then commit the result.
 
-
-El mensaje que estás viendo indica que Git intentó hacer un merge automático del archivo `README.md`, pero encontró un conflicto que necesita ser resuelto manualmente. Aquí tienes los pasos para resolver el conflicto:
+El mensaje que estás viendo indica que Git intentó hacer un merge
+automático del archivo `README.md`, pero encontró un conflicto que
+necesita ser resuelto manualmente. Aquí tienes los pasos para resolver
+el conflicto:
 
 ### Pasos para Resolver un Conflicto de Merge
 
-1. **Verificar el Conflicto**:
-   - Abre el archivo `README.md` en tu editor de texto o IDE.
-   - Busca las marcas de conflicto que Git ha añadido. Estas marcas se verán algo así:
-     ```plaintext
-     <<<<<<< HEAD
-     Tu contenido local
-     =======
-     Contenido del repositorio remoto
-     >>>>>>> commit-id
-     ```
+1.  **Verificar el Conflicto**:
+    -   Abre el archivo `README.md` en tu editor de texto o IDE.
 
-2. **Resolver el Conflicto**:
-   - Elimina las marcas de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`) y decide qué contenido conservar.
-   - Puedes combinar manualmente ambas versiones si es necesario.
+    -   Busca las marcas de conflicto que Git ha añadido. Estas marcas
+        se verán algo así:
 
-3. **Añadir el Archivo Resuelto al Área de Preparación**:
-   - Después de resolver el conflicto y guardar el archivo, añade el archivo al área de preparación:
-     ```bash
-     git add README.md
-     ```
+        ``` plaintext
+        <<<<<<< HEAD
+        Tu contenido local
+        =======
+        Contenido del repositorio remoto
+        >>>>>>> commit-id
+        ```
+2.  **Resolver el Conflicto**:
+    -   Elimina las marcas de conflicto (`<<<<<<<`, `=======`,
+        `>>>>>>>`) y decide qué contenido conservar.
+    -   Puedes combinar manualmente ambas versiones si es necesario.
+3.  **Añadir el Archivo Resuelto al Área de Preparación**:
+    -   Después de resolver el conflicto y guardar el archivo, añade el
+        archivo al área de preparación:
 
-4. **Hacer Commit del Merge Resuelto**:
-   - Realiza un commit para completar el merge. Git abrirá el editor de texto para que añadas un mensaje de commit si no especificas uno:
-     ```bash
-     git commit -m "Resuelve conflicto en README.md"
-     ```
+        ``` bash
+        git add README.md
+        ```
+4.  **Hacer Commit del Merge Resuelto**:
+    -   Realiza un commit para completar el merge. Git abrirá el editor
+        de texto para que añadas un mensaje de commit si no especificas
+        uno:
 
-5. **Continuar con tu Flujo de Trabajo**:
-   - Si tu cambio era parte de un pull, ya tendrás la versión actualizada con los cambios del repositorio remoto después de resolver el conflicto.
-   - Si todavía necesitas hacer un push, hazlo ahora:
-     ```bash
-     git push origin main
-     ```
+        ``` bash
+        git commit -m "Resuelve conflicto en README.md"
+        ```
+5.  **Continuar con tu Flujo de Trabajo**:
+    -   Si tu cambio era parte de un pull, ya tendrás la versión
+        actualizada con los cambios del repositorio remoto después de
+        resolver el conflicto.
+
+    -   Si todavía necesitas hacer un push, hazlo ahora:
+
+        ``` bash
+        git push origin main
+        ```
 
 ### Resumen:
-- Abre el archivo con conflicto y resuelve manualmente las diferencias.
-- Añade el archivo resuelto al área de preparación.
-- Haz commit para completar el merge.
-- Continúa con tu flujo de trabajo habitual.
 
-Resolver conflictos es una parte común del trabajo con Git, especialmente en proyectos colaborativos. Si necesitas más detalles o tienes alguna otra pregunta, ¡házmelo saber!
+-   Abre el archivo con conflicto y resuelve manualmente las
+    diferencias.
+-   Añade el archivo resuelto al área de preparación.
+-   Haz commit para completar el merge.
+-   Continúa con tu flujo de trabajo habitual.
 
+Resolver conflictos es una parte común del trabajo con Git,
+especialmente en proyectos colaborativos. Si necesitas más detalles o
+tienes alguna otra pregunta, ¡házmelo saber!
+
+### qué diferencias prácticas hay entre hacer git pull --f-only en lugar de utilizar el stash?
+
+Vamos a comparar estas dos opciones y ver en qué casos podrías preferir
+una sobre la otra.
+
+### `git pull --force-only`
+
+El comando `git pull --force-only` fuerza una actualización del
+repositorio local desde el repositorio remoto, incluso si hay cambios
+locales que no han sido confirmados. Esto podría causar la pérdida de
+cambios locales no confirmados, así que úsalo con precaución.
+
+**Pros**: - Actualización rápida y directa desde el repositorio
+remoto. - Útil cuando necesitas que tu copia local refleje exactamente
+el estado del remoto, sin importar los cambios locales.
+
+**Contras**: - Riesgo de pérdida de cambios no confirmados. - No permite
+hacer una revisión de los cambios locales antes de forzar la
+actualización.
+
+### Uso del `stash`
+
+El comando `git stash` guarda temporalmente los cambios locales no
+confirmados y restaura el estado del repositorio local al último commit.
+Esto te permite hacer un `git pull` limpio y luego aplicar los cambios
+locales de nuevo desde el stash.
+
+**Pros**: - Conserva los cambios locales sin perderlos. - Permite una
+actualización limpia del repositorio local desde el remoto. -
+Flexibilidad para aplicar los cambios locales después de la
+actualización.
+
+**Contras**: - Necesita un paso adicional para guardar y aplicar los
+cambios (`git stash apply`). - Puede ser un poco más laborioso si tienes
+que hacer esto frecuentemente.
+
+### Ejemplo de Uso de `git stash`
+
+1.  **Guardar Cambios Locales**:
+
+    ``` bash
+    git stash
+    ```
+
+2.  **Actualizar desde el Remoto**:
+
+    ``` bash
+    git pull
+    ```
+
+3.  **Aplicar los Cambios del Stash**:
+
+    ``` bash
+    git stash apply
+    ```
+
+### Resumen
+
+-   **`git pull --force-only`**:
+    -   **Ventajas**: Rápido y directo.
+    -   **Desventajas**: Riesgo de pérdida de cambios locales.
+-   **`git stash`**:
+    -   **Ventajas**: Conserva los cambios locales, permite una
+        actualización limpia.
+    -   **Desventajas**: Necesita pasos adicionales para aplicar los
+        cambios guardados.
+
+En general, usar `git stash` es una opción más segura y flexible para
+manejar los cambios locales antes de actualizar desde el repositorio
+remoto. Si tienes más preguntas o necesitas más detalles, ¡házmelo
+saber!

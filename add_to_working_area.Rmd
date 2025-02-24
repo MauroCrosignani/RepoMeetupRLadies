@@ -1,0 +1,43 @@
+Add es algo que se hace la primera vez que se usan los archivos.
+
+Con la opción -A se agregan todos los archivos de un folder. No siempre es lo deseado, hay que estar seguro.
+
+El comando `git add` se usa para incluir archivos en el área de preparación, y es una práctica común hacerlo la primera vez que se usan los archivos. La opción `-A` agrega todos los archivos del directorio actual y los subdirectorios, lo cual puede no ser siempre lo que deseas. Es importante estar seguro antes de usar esta opción.
+
+### Uso de `git add`:
+
+1.  **Agregar Archivos Individuales**:
+
+    ``` bash
+    git add archivo1.txt
+    ```
+
+2.  **Agregar Todos los Archivos en el Directorio Actual**:
+
+    ``` bash
+    git add .
+    ```
+
+3.  **Agregar Todos los Archivos del Repositorio**:
+
+    ``` bash
+    git add -A
+    ```
+
+Al usar `git add -A`, asegúrate de que realmente deseas incluir todos los cambios en tu commit, ya que esto puede incluir archivos que no querías confirmar.
+
+### Ejemplo:
+
+-   Si solo deseas agregar archivos específicos:
+
+    ``` bash
+    git add archivo1.txt archivo2.txt
+    ```
+
+-   Si deseas agregar todos los cambios en el directorio actual:
+
+    ``` bash
+    git add .
+    ```
+
+Espero que esto aclare el uso de `git add`. Si tienes más preguntas o necesitas más detalles, ¡házmelo saber!
