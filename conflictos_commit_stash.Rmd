@@ -263,3 +263,110 @@ En general, usar `git stash` es una opción más segura y flexible para
 manejar los cambios locales antes de actualizar desde el repositorio
 remoto. Si tienes más preguntas o necesitas más detalles, ¡házmelo
 saber!
+
+
+### si estoy trabajando con git y github y noto después de varios pushes donde se mergearon varias features, que hay una funcionalidad que dejó de funcionar, ¿cómo puedo recuperar la funcionalidad que perdí sin descartar las nuevas mejoras?
+
+Okay, the user is having a problem with Git and GitHub. They pushed several changes where features were merged, and now a functionality that used to work is broken. They want to recover that functionality without losing the new improvements. Let me think through how to approach this.
+
+First, I need to recall Git strategies for fixing issues without discarding recent changes. The user doesn't want to undo all the merges, just find where the functionality broke and fix it. So, maybe using git bisect would help here. Bisect allows you to find the exact commit that introduced a bug by binary search.
+
+Alternatively, they could check out an older commit where the feature worked and compare the changes with the current version to identify what's missing or broken. But if there are many commits, bisect is more efficient.
+
+Another approach is to create a new branch from the current state and then revert only the specific commit that caused the issue, but that requires knowing which commit is problematic. If they don't know, bisect is better.
+
+They might also consider adding a test case that reproduces the broken functionality and then using that test to check each commit during bisect.
+
+Once the problematic commit is found, they can either revert it or fix the code in a new commit. Since they want to keep the new features, reverting might not be ideal if the commit introduced other necessary changes. So, fixing the issue in a new commit while keeping all other changes is preferable.
+
+Also, if the problem is due to a conflict resolution during a merge, checking the merge commits specifically might help. Using git log to look for merge commits and inspecting those could narrow things down.
+
+Another thought: maybe cherry-picking a fix from an older branch into the current one? But that depends on whether the fix can be isolated.
+
+So summarizing steps:
+
+1. Use git bisect to identify the bad commit.
+2. Once found, analyze what changed in that commit related to the broken feature.
+3. Apply a fix either by reverting that commit (if safe) or modifying the code.
+4. Test thoroughly before pushing the fix.
+
+I should also mention checking out specific commits to test them manually if bisect isn't feasible for some reason. Maybe creating a branch from the last known good commit and comparing diffs with master.
+
+Also, emphasizing not to use git reset --hard or anything that discards history, as they want to keep all changes except fixing the broken part.
+
+Finally, after fixing, ensure to test and merge the correction into the main branch.
+
+
+Para recuperar la funcionalidad perdida sin descartar las nuevas mejoras en Git/GitHub, sigue estos pasos:
+
+### 1. **Identificar el commit problemático**
+   - **Usa `git bisect`** para encontrar el commit que rompió la funcionalidad:
+     ```bash
+     git bisect start
+     git bisect bad          # Marca el estado actual como "malo"
+     git bisect good   # Marca un commit antiguo donde funcionaba (ej: hash de hace 2 semanas)
+     ```
+   Git te guiará entre commits hasta que encuentres el culpable. Ejecuta pruebas manuales o automáticas en cada paso y marca con `git bisect good` o `git bisect bad`.
+
+### 2. **Analizar el commit problemático**
+   - Revisa los cambios del commit identificado:
+     ```bash
+     git show 
+     ```
+   Busca modificaciones relacionadas con la funcionalidad rota (ej: líneas eliminadas o lógica alterada).
+
+### 3. **Corregir sin perder mejoras**
+   - **Opción A: Revertir solo el cambio específico** (si es seguro):
+     ```bash
+     git checkout main
+     git revert   # Crea un nuevo commit que deshace los cambios del commit malo
+     ```
+   - **Opción B: Aplicar un parche manual**:
+     1. Crea una rama para la corrección:
+        ```bash
+        git checkout -b fix/feature-recovery
+        ```
+     2. Copia manualmente el código funcional desde un commit anterior (usando `git checkout  -- archivo.ext`) o modifica el código actual para resolver el error.
+     3. Haz commit y fusiona los cambios:
+        ```bash
+        git add .
+        git commit -m "fix: restore broken functionality"
+        git checkout main
+        git merge fix/feature-recovery
+        ```
+
+### 4. **Verificar y fusionar**
+   - Ejecuta pruebas locales para confirmar que:
+     1. La funcionalidad perdida se ha recuperado.
+     2. Las nuevas mejoras siguen intactas.
+   - Sube los cambios:
+     ```bash
+     git push origin main
+     ```
+
+### Ejemplo Práctico
+Supongamos que el commit `abcd123` rompió la funcionalidad:
+```bash
+# Usar bisect para encontrarlo
+git bisect start
+git bisect bad          # Estado actual está roto
+git bisect good 1a2b3c4 # Commit antiguo donde funcionaba
+
+# Al terminar, Git indicará el commit problemático: abcd123
+
+# Opción: Revertir solo ese commit
+git revert abcd123      # Crea un nuevo commit que deshace abcd123
+
+# O corregir manualmente en una rama
+git checkout -b fix/issue
+git checkout 1a2b3c4 -- src/funcionalidad.js  # Recupera el archivo de un commit bueno
+git commit -m "Restaurar funcionalidad.js"
+git checkout main
+git merge fix/issue
+```
+
+### Herramientas Adicionales
+- **GitHub Actions**: Configura tests automáticos para detectar regresiones futuras.
+- **Diff Tools**: Usa `git diff   -- archivo.ext` para comparar cambios específicos.
+
+Así mantienes las mejoras recientes mientras restauras lo que dejó de funcionar 🛠️.
