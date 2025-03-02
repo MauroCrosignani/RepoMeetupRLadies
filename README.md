@@ -1,5 +1,5 @@
 # RepoMeetupRLadies
-Este repo fue creado como ejemplo del meetup
+Este repo fue creado como ejemplo del meetup para manejo de github.
 
 
 Tiene descripciones de todo lo que vaya aprendiendo de github.
